@@ -6,8 +6,8 @@ class Application
     req = Rack::Request.new(env)
     
     if req.path.match(/items/)
-      item_name = req.path.split(/item/).last
-      @@items.each do |item|
+      item_name = req.path.split(/items/).last
+      if item = @@items.find{|i| i.
       resp.write "#{item}\n"
     end
       resp.write "Route not found"
