@@ -1,5 +1,5 @@
 class Application
-  @@items = []
+  @@items = [Item.new("Figs",3.42),Item.new("Pears",0.99)]
   
   def call(env)
     resp = Rack::Response.new 
@@ -8,7 +8,7 @@ class Application
     if req.path.match(/items/)
       @@items.each do |item|
       resp.write "#{item}\n"
-    else
+    end
       resp.write "Route not found"
       resp.status = 404
     end
